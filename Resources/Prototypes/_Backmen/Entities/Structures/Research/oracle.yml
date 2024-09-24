@@ -9,14 +9,12 @@
   components:
   - type: Anchorable
     delay: 10000
+  - type: DeviceLinkSink
   - type: Emagged
-  - type: GenericVisualizer
-    visuals:
-      enum.ConveyorVisuals.State:
-        enum.RecyclerVisualLayers.Main:
-          Off: { state: oracle-0 }
-        enum.RecyclerVisualLayers.Bloody:
-          Off: { state: oracle-o0bld }
+  - type: Destructible
+  - type: RecyclerVisuals
+    baseKey: oracle-
+    bloodyKey: bld
   - type: SolutionContainerManager
     solutions:
       fountain:
@@ -61,11 +59,10 @@
     sprite: Backmen/Structures/Decoration/statues.rsi
     layers:
     - state: oracle-0
-    - map: ["enum.SolutionContainerLayers.Fill","enum.RecyclerVisualLayers.Main"]
+    - map: ["enum.RecyclerVisualLayers.Main"]
       state: oracle-0
-    - state: oracle-o0bld
-      map: ["enum.RecyclerVisualLayers.Bloody"]
-      visible: false
+    - map: ["enum.SolutionContainerLayers.Fill"]
+      state: oracle-0
   - type: MaterialReclaimer
     enabled: true
     efficiency: 0.25

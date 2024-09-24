@@ -175,6 +175,7 @@ public sealed class EvilTwinSystem : EntitySystem
                                 targetSession,
                                 currentJob?.Prototype,
                                 false,
+                                true,
                                 0,
                                 station.Value,
                                 pref));
@@ -601,15 +602,7 @@ public sealed class EvilTwinSystem : EntitySystem
                             continue;
                         }
 
-                        if (!_prototype.TryIndex(loadoutProto.Equipment, out var startingGear))
-                        {
-                            Log.Error(
-                                $"Unable to find starting gear {loadoutProto.Equipment} for loadout {loadoutProto}");
-                            continue;
-                        }
-
-                        // Handle any extra data here.
-                        _stationSpawning.EquipStartingGear(twinUid, startingGear, raiseEvent: false);
+                        _stationSpawning.EquipStartingGear(twinUid, loadoutProto, raiseEvent: false);
                     }
                 }
             }
